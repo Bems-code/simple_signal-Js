@@ -5,7 +5,7 @@ function logData(...data){
     console.log(...data)
 }
 
-// Function to be used in connection
+// Function to be used in connection 2
 function logDataType(...data){
     let type = ''
 
@@ -22,9 +22,9 @@ function activate(...data){
     console.log('__ACTIVATION_EVENT__')
 }
 
-
-activate('1', 2, 'three', 'uh', 6, 'seven')
-
 // Setup Connections || Note that both connect to the same signal
-Network.onActivate.Connected(handleActivation)
-Network.onActivate.Connected(handleActivation_DUPE)
+Network.onActivate.Connect(logData)
+Network.onActivate.Connect(logDataType)
+
+// Call all signals listening to onActivate
+activate('1', 2, 'three', 'uh', 6, 'seven', {'my','very','cool','list'})
